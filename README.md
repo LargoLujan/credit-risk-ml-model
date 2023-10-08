@@ -124,12 +124,11 @@ Se realizaron experimentos para mejorar las características utilizadas en el mo
 
 ## Refinado del Modelo
 
-Se probaron varios modelos de aprendizaje automático, incluyendo [lista de modelos] con diferentes hiperparámetros. Cada modelo se evaluó utilizando las siguientes métricas:
+Se probaron varios modelos de aprendizaje automático, incluyendo Random Forest Classifier o Regresión Logística con diferentes hiperparámetros. Cada modelo se evaluó utilizando las siguientes métricas:
 
 - Precisión
 - Recall
 - F1-score
-- Tiempo de entrenamiento
 - Desviación o sobreajuste
 
 El modelo final seleccionado fue Regresión lógistica con los siguientes resultados:
