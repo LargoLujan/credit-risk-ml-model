@@ -11,7 +11,7 @@ Este proyecto se enfoca en desarrollar un modelo de aprendizaje automático para
 
 ## Dataset
 
-El dataset utilizado en este proyecto se obtuvo de la fuente UCI y fue recopilado por el Dr. Hans Hofmann. Este conjunto de datos contiene información sobre individuos clasificados como riesgos crediticios buenos o malos. La matriz de costos asociada se presenta a continuación:
+El dataset utilizado en este proyecto se obtuvo de la fuente UCI y fue recopilado por el Dr. Hans Hofmann en 1994. Este conjunto de datos contiene información sobre individuos clasificados como riesgos crediticios buenos o malos. La matriz de costos asociada se presenta a continuación:
 
 |              | Good (predicted) | Bad (predicted) |
 |--------------|------------------|-----------------|
@@ -39,10 +39,12 @@ El conjunto de datos consta de 21 características que se dividen en caracterís
 ## Requisitos Técnicos
 
 - **Métricas de Evaluación Propuestas**: En este proyecto, utilizaremos métricas como precisión, recall y F1-score para evaluar el rendimiento del modelo.
-- **Precisión Final del Modelo Aceptable Mínima**: [Especificar valor].
-- **Precisión Final del Modelo Deseable**: [Especificar valor].
-- **Recursos de Hardware**: [Especificar recursos de CPU y RAM disponibles].
-- **Tiempo Máximo de Entrenamiento**: [Especificar tiempo máximo permitido para el entrenamiento].
+- **Precisión Final del Modelo Aceptable Mínima**: 0.60.
+- **Precisión Final del Modelo Deseable**: 0.75.
+- **Recursos de Hardware**:
+- - Procesador	Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz   3.60 GHz
+- - RAM instalada	32,0 GB
+- - Tipo de sistema	Sistema operativo de 64 bits, procesador basado en x64.
 - **Dependencias**: Asegúrate de tener instaladas las siguientes bibliotecas de Python:
     - Numpy
     - Pandas
@@ -65,38 +67,52 @@ No se detectaron datos faltantes en el conjunto de datos, y no se realizaron pre
 ### Análisis de Atributos
 
 - **Clase (Destino)**: Dos categorías, bueno o malo.
-    - Bueno: [Número de instancias]
-    - Malo: [Número de instancias]
-
+    - Bueno: 700 instancias
+    - Malo: 300 instancias
 - **Checking_status** (Estado de la cuenta corriente):
-    - [Descripción detallada de las categorías y distribución de datos]
+    - Categorías:
+      - "<0"
+      - "0<=X<200"
+      - "no checking"
 
 - **Duración** (Duración en meses del crédito):
-    - [Estadísticas descriptivas y visualizaciones]
+    - Valor mínimo: 6
+    - Valor máximo: 48
+    - Media: 20.903 meses.
+    - Desviación estándar: 12.058 meses.
 
 - **Credit_history** (Historial crediticio):
-    - [Descripción detallada de las categorías y distribución de datos]
+    - "critical/other existing credit"
+    - "existing paid"
 
 - **Purpose** (Finalidad del crédito):
-    - [Descripción detallada de las categorías y distribución de datos]
+    - "radio/tv"
+    - "education"
+    - "furniture/equipment"
+    - "new car"
 
 - **Credit_amount** (Monto del crédito):
-    - [Estadísticas descriptivas y visualizaciones]
-
+    - Estadísticas descriptivas:
+        - Valor mínimo: 250.0
+        - Valor máximo: 18424.0
+        - Media: 3271.248
+        - Desviación estándar: 2822.751
 - **Savings_status** (Estado de las cuentas de ahorro/bonos):
-    - [Descripción detallada de las categorías y distribución de datos]
+    - Categorías:
+        - "no known savings"
+        - "<100"
 
-- [Continúa con el análisis de otros atributos]
-
+      
 ## Modelo Base
 
-En esta etapa, se desarrolló un modelo base inicial utilizando un [tipo de modelo] con los siguientes resultados:
+En esta etapa, se desarrolló un modelo base inicial utilizando un Random Forest Classifier con los siguientes resultados:
 
-- Precisión: [Valor de precisión]
-- Recall: [Valor de recall]
-- F1-score: [Valor de F1-score]
-- Tiempo de entrenamiento: [Tiempo en segundos]
-- Desviación o sobreajuste: [Indicar si se observa desviación o sobreajuste]
+- Precisión: 0.70 (conjunto de validación) y 0.74 (conjunto de prueba)
+- Recall: 0.83 (conjunto de validación) y 0.84 (conjunto de prueba)
+- F1-score: 0.75 (conjunto de validación) y 0.79 (conjunto de prueba)
+- Tiempo de entrenamiento: 900 segundos.
+- Desviación o sobreajuste:
+- - La curva de aprendizaje mostró cierta desviación ya que la precisión en el conjunto de entrenamiento es más alta que en el conjunto de prueba, lo que - - sugiere un ligero sobreajuste. Sin embargo, este sobreajuste es relativamente bajo, ya que las puntuaciones en ambos conjuntos son cercanas y no hay - - - una brecha significativa.
 
 ## Ingeniería de Características
 
@@ -116,15 +132,15 @@ Se probaron varios modelos de aprendizaje automático, incluyendo [lista de mode
 - Tiempo de entrenamiento
 - Desviación o sobreajuste
 
-El modelo final seleccionado fue [nombre del modelo] con los siguientes resultados:
+El modelo final seleccionado fue Regresión lógistica con los siguientes resultados:
 
-- Precisión final: [Valor de precisión final]
-- Recall final: [Valor de recall final]
-- F1-score final: [Valor de F1-score final]
-- Tiempo de entrenamiento: [Tiempo en segundos]
+- Precisión final: 0.6667
+- Recall final: 0.8
+- F1-score final: 0.7273
+- Tiempo de entrenamiento: 900 segundos.
 
 El modelo final se considera adecuado para el problema de riesgo crediticio.
 
 ## Uso del Modelo
 
-Puedes utilizar este modelo para predecir el riesgo crediticio de individuos proporcionando los atributos relevantes. Se proporciona un cuaderno Jupyter (`Bueno.ipyn
+Puedes utilizar este modelo para predecir el riesgo crediticio de individuos proporcionando los atributos relevantes. Se proporciona un cuaderno Jupyter. 
