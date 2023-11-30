@@ -140,6 +140,155 @@ El modelo final seleccionado fue Regresión lógistica con los siguientes result
 
 El modelo final se considera adecuado para el problema de riesgo crediticio.
 
+
+# Final Project - Credit Risk Model
+
+## Project Description
+
+This project focuses on developing a machine learning model to predict individuals' credit risk based on a set of attributes. The primary goal is to provide a tool that helps financial institutions make more informed decisions when assessing the solvency of credit applicants.
+
+## Author
+
+- **Name**: Manuel Luján Vilchez
+- **Contact**: miveritas.vivir@gmail.com
+
+## Dataset
+
+The dataset used in this project was obtained from the UCI source and was compiled by Dr. Hans Hofmann in 1994. This dataset contains information about individuals classified as good or bad credit risks. The associated cost matrix is presented below:
+
+|                   | Good (predicted) | Bad (predicted) |
+|-------------------|------------------|-----------------|
+| **Good (actual)** | 0                | 1               |
+| **Bad (actual)**  | 5                | 0               |
+
+The cost matrix reflects the penalty for misclassifying a client as good when they are bad (5) compared to classifying them as bad when they are good (1).
+
+### Attribute Description
+
+The dataset consists of 21 features divided into nominal and numerical characteristics. Below is a description of some key attributes:
+
+- **Class (Target)**: Classification in two categories, good or bad.
+- **Checking_status**: Current account status in German marks.
+- **Duration**: Duration in months of the credit.
+- **Credit_history**: Credit history, including credits taken, duly paid, delays, and critical accounts.
+- **Purpose**: Purpose of the credit, such as car, television, etc.
+- **Credit_amount**: Amount of credit.
+- **Savings_status**: Status of savings accounts/bonds in German marks.
+- **Employment**: Current employment in years.
+- **Personal_status_sex**: Personal situation (married, single, etc.) and sex.
+- **Age**: Age in years.
+- **Housing**: Type of housing (rent, own, etc.).
+
+## Technical Requirements
+
+- **Proposed Evaluation Metrics**: In this project, we will use metrics such as accuracy, recall, and F1-score to evaluate the model's performance.
+- **Minimum Acceptable Final Model Accuracy**: 0.60.
+- **Desirable Final Model Accuracy**: 0.75.
+- **Hardware Resources**:
+  - Processor: Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz 3.60 GHz
+  - Installed RAM: 32.0 GB
+  - System Type: 64-bit operating system, x64-based processor.
+- **Dependencies**: Ensure the following Python libraries are installed:
+    - Numpy
+    - Pandas
+    - Scikit-learn
+
+## Dataset Analysis
+
+### Origin and Source of Dataset
+
+The dataset was obtained from the UCI source and compiled by Dr. Hans Hofmann. The reference for citing this dataset is UCI itself.
+
+### Dataset Size
+
+The dataset contains a total of 1000 instances.
+
+### Data Preprocessing
+
+No missing data was detected in the dataset, and no prior preprocessing was performed.
+
+### Attribute Analysis
+
+- **Class (Target)**: Two categories, good or bad.
+    - Good: 700 instances
+    - Bad: 300 instances
+- **Checking_status** (Current account status):
+    - Categories:
+      - "<0"
+      - "0<=X<200"
+      - "no checking"
+
+- **Duration** (Credit duration in months):
+    - Minimum value: 6
+    - Maximum value: 48
+    - Average: 20.903 months
+    - Standard deviation: 12.058 months
+
+- **Credit_history** (Credit history):
+    - "critical/other existing credit"
+    - "existing paid"
+
+- **Purpose** (Purpose of the credit):
+    - "radio/tv"
+    - "education"
+    - "furniture/equipment"
+    - "new car"
+
+- **Credit_amount** (Amount of credit):
+    - Descriptive statistics:
+        - Minimum value: 250.0
+        - Maximum value: 18424.0
+        - Average: 3271.248
+        - Standard deviation: 2822.751
+
+- **Savings_status** (Savings account/bonds status):
+    - Categories:
+        - "no known savings"
+        - "<100"
+
+## Base Model
+
+In this phase, an initial base model was developed using a Random Forest Classifier with the following results:
+
+- Accuracy: 0.70 (validation set) and 0.74 (test set)
+- Recall: 0.83 (validation set) and 0.84 (test set)
+- F1-score: 0.75 (validation set) and 0.79 (test set)
+- Training time: 900 seconds.
+- Deviation or overfitting:
+  - The learning curve showed some deviation as the accuracy on the training set is higher than on the
+
+ test set, suggesting a slight overfitting. However, this overfitting is relatively low, as scores on both sets are close, and there is no significant gap.
+
+## Feature Engineering
+
+Experiments were conducted to improve the features used in the model, which included:
+
+- Evaluation of feature relevance.
+- Proposing and testing improvements, such as polynomials, logarithms, and cross-variable interactions.
+- Dimensionality reduction using PCA when necessary.
+
+## Model Refinement
+
+Several machine learning models were tested, including Random Forest Classifier or Logistic Regression with different hyperparameters. Each model was evaluated using the following metrics:
+
+- Accuracy
+- Recall
+- F1-score
+- Deviation or overfitting
+
+The final selected model was Logistic Regression with the following results:
+
+- Final accuracy: 0.6667
+- Final recall: 0.8
+- Final F1-score: 0.7273
+- Training time: 900 seconds.
+
+The final model is considered adequate for the credit risk problem.
+
+## Model Usage
+
+You can use this model to predict individuals' credit risk by providing the relevant attributes. A Jupyter notebook is provided.
+
 ## Uso del Modelo
 
 Puedes utilizar este modelo para predecir el riesgo crediticio de individuos proporcionando los atributos relevantes. Se proporciona un cuaderno Jupyter. 
